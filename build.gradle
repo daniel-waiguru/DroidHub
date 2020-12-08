@@ -6,6 +6,10 @@ buildscript {
         firebase_storage = "19.2.0"
         lifecycle_version = "2.2.0"
         nav_version = "2.3.2"
+        activity_version = "1.1.0"
+        fragment_ktx = "1.2.5"
+        lifecycle_ktx = "2.2.0"
+        nav_ktx = "2.3.2"
     }
     repositories {
         google()
