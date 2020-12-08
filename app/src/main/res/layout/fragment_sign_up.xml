@@ -66,6 +66,17 @@
             android:layout_height="match_parent"
             />
     </com.google.android.material.textfield.TextInputLayout>
+    <ProgressBar
+        android:id="@+id/signUpProgress"
+        android:visibility="gone"
+        android:layout_width="@dimen/progress_bar_size"
+        android:layout_height="@dimen/progress_bar_size"
+        app:layout_constraintTop_toBottomOf="@id/passwordLayout"
+        app:layout_constraintStart_toStartOf="@id/passwordLayout"
+        app:layout_constraintEnd_toEndOf="@id/passwordLayout"
+        android:indeterminateTint="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@id/signUpButton"
+        />
 
     <Button
         android:id="@+id/signUpButton"

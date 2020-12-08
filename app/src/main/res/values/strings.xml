@@ -10,4 +10,9 @@
     <string name="login">Login</string>
     <string name="or_sign_up">Or Sign Up</string>
     <string name="your_files">Your files</string>
+    <string name="add_files_button">Add Files button</string>
+    <string name="add_a_file">Add a file</string>
+    <string name="file_name_goes_here">File name goes here</string>
+    <string name="choose_file">Choose file</string>
+    <string name="upload_file">Upload file</string>
 </resources>

@@ -19,7 +19,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginStart">32dp</item>
         <item name="android:layout_marginEnd">32dp</item>
-        <item name="android:padding">12dp</item>
+        <item name="android:padding">20dp</item>
         <item name="android:layout_marginTop">16dp</item>
     </style>
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">

@@ -1,13 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.upload.UploadFileFragment">
-
     <TextView
+        android:id="@+id/filesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_a_file"
+        android:textSize="@dimen/title_size"
+        android:textStyle="bold"
+        android:textColor="@color/textColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        android:layout_marginTop="@dimen/margin_top_large"
+        />
+    <EditText
+        android:id="@+id/fileName"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
-
-</FrameLayout>
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/filesTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/CustomEditText"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        android:layout_marginTop="@dimen/margin_top_large"
+        android:hint="@string/file_name_goes_here"
+        android:inputType="text"
+        android:autofillHints="email"
+        />
+    <Button
+        android:id="@+id/chooseFileButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_file"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginTop="@dimen/margin_top_large"
+        style="@style/CustomButton"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/fileName"
+        app:layout_constraintEnd_toEndOf="@id/fileName"
+        app:layout_constraintTop_toBottomOf="@id/fileName"
+        />
+    <ProgressBar
+        android:id="@+id/uploadProgress"
+        android:layout_width="@dimen/progress_bar_size"
+        android:layout_height="@dimen/progress_bar_size"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/chooseFileButton"
+        app:layout_constraintStart_toStartOf="@id/chooseFileButton"
+        app:layout_constraintEnd_toEndOf="@id/chooseFileButton"
+        android:indeterminateTint="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@id/uploadFileButton"
+        />
+    <Button
+        android:id="@+id/uploadFileButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_file"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginTop="250dp"
+        style="@style/CustomButton"
+        android:textStyle="bold"
+        android:backgroundTint="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="@id/chooseFileButton"
+        app:layout_constraintEnd_toEndOf="@id/chooseFileButton"
+        app:layout_constraintTop_toBottomOf="@id/chooseFileButton"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
