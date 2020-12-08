@@ -36,4 +36,5 @@ class SignUpViewModel : ViewModel() {
     suspend fun userSignUp(user: User, password: String): ResultWrapper<AuthResult> {
         return repository.signUp(user, password)
     }
+
 }

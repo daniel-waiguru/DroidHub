@@ -25,9 +25,13 @@ class MainRepositoryImpl: MainRepository {
                 ResultWrapper.Failure(e.message.toString())
             }
 
-    override fun signIn(email: String, password: String) {
-        TODO("Not yet implemented")
-    }
+    override suspend fun signIn(email: String, password: String) : ResultWrapper<AuthResult> =
+            try {
+                ResultWrapper.Success(auth.signInWithEmailAndPassword(email, password).await())
+            }
+            catch (e: Exception) {
+                ResultWrapper.Failure(e.message.toString())
+            }
 
     override fun createUser(user: User) {
         val userCollection = database.collection(USERS_COLLECTION)

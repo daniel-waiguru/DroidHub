@@ -18,4 +18,5 @@
     <string name="name_error">Name is required</string>
     <string name="email_error">Please enter a valid email</string>
     <string name="password_error">Password should be more than 6 characters</string>
+    <string name="login_success">Login successful</string>
 </resources>

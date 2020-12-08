@@ -7,7 +7,7 @@ import tech.danielwaiguru.droidhub.model.User
 
 interface MainRepository {
     suspend fun signUp(user: User, password: String): ResultWrapper<AuthResult>
-    fun signIn(email: String, password: String)
+    suspend fun signIn(email: String, password: String): ResultWrapper<AuthResult>
     fun createUser(user: User)
     fun saveFile(downloadUrl: String)
     fun uploadFile(file: Uri)
