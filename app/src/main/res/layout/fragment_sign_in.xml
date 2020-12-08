@@ -1,13 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.signin.SignInFragment">
-
     <TextView
+        android:id="@+id/loginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textSize="@dimen/title_size"
+        android:textStyle="bold"
+        android:textColor="@color/textColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/margin"
+        />
+    <EditText
+        android:id="@+id/userEmail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
-
-</FrameLayout>
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/loginTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/CustomEditText"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        android:layout_marginTop="@dimen/margin_top_large"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:autofillHints="email"
+        />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordLayout"
+        app:layout_constraintStart_toStartOf="@id/userEmail"
+        app:layout_constraintEnd_toEndOf="@id/userEmail"
+        app:layout_constraintTop_toBottomOf="@id/userEmail"
+        style="@style/TextInputLayoutStyle"
+        android:background="@drawable/gray_background"
+        android:layout_margin="@dimen/margin"
+        app:passwordToggleEnabled="true"
+        android:hint="@string/password"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userPassword"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_up"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginTop="300dp"
+        style="@style/CustomButton"
+        app:layout_constraintStart_toStartOf="@id/passwordLayout"
+        app:layout_constraintEnd_toEndOf="@id/passwordLayout"
+        app:layout_constraintTop_toBottomOf="@id/passwordLayout"
+        />
+    <TextView
+        android:id="@+id/navToSignUn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/subtitle_size"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/margin_top_large"
+        app:layout_constraintStart_toStartOf="@id/signInButton"
+        app:layout_constraintEnd_toEndOf="@id/signInButton"
+        app:layout_constraintTop_toBottomOf="@id/signInButton"
+        android:text="@string/or_sign_up"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
