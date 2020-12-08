@@ -1,0 +1,31 @@
+buildscript {
+    ext{
+        kotlin_version = "1.4.20"
+        google_services = "4.3.4"
+        firebase_auth = "20.0.1"
+        firebase_storage = "19.2.0"
+        lifecycle_version = "2.2.0"
+        nav_version = "2.3.2"
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.gms:google-services:$google_services"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

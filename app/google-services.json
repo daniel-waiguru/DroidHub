@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "929866029022",
+    "project_id": "droidhub-e45dc",
+    "storage_bucket": "droidhub-e45dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929866029022:android:cde76bc837cf4a2b842f4f",
+        "android_client_info": {
+          "package_name": "tech.danielwaiguru.droidhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929866029022-btjv9abgpa7fgd3mbo539a7qhrkvo6c5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6D-Xz3gHNEVEcytpsZ3GDEZJtFU18XSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929866029022-btjv9abgpa7fgd3mbo539a7qhrkvo6c5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
