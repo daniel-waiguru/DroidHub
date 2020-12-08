@@ -6,4 +6,6 @@
     <dimen name="margin">16dp</dimen>
     <dimen name="subtitle_size">20sp</dimen>
     <dimen name="margin_top_large">40dp</dimen>
+    <dimen name="card_elevation">15dp</dimen>
+    <dimen name="card_radius">10dp</dimen>
 </resources>
