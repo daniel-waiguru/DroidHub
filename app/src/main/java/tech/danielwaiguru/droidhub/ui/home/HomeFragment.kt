@@ -1,20 +1,20 @@
-package tech.danielwaiguru.droidhub.ui.upload
+package tech.danielwaiguru.droidhub.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import tech.danielwaiguru.droidhub.databinding.FragmentUploadFileBinding
+import tech.danielwaiguru.droidhub.databinding.FragmentHomeBinding
 
-class UploadFileFragment : Fragment() {
-    private var _binding: FragmentUploadFileBinding? = null
+class HomeFragment : Fragment() {
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentUploadFileBinding.inflate(layoutInflater)
+        _binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
     }
 
