@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import tech.danielwaiguru.droidhub.databinding.FragmentSignInBinding
 
 class SignInFragment : Fragment() {
@@ -18,10 +19,22 @@ class SignInFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initListeners()
     }
 
+    private fun initListeners() {
+        with(binding){
+            navToSignUp.setOnClickListener {
+                startSignUpUi()
+            }
+        }
+    }
+    private fun startSignUpUi() {
+        val action = SignInFragmentDirections.actionSignInFragmentToSignUpFragment()
+        findNavController().navigate(action)
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
