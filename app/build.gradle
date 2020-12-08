@@ -52,6 +52,8 @@ dependencies {
     implementation "com.google.firebase:firebase-auth-ktx:$firebase_auth"
     //firebase storage
     implementation "com.google.firebase:firebase-storage-ktx:$firebase_storage"
+    //firestore
+    implementation "com.google.firebase:firebase-firestore-ktx:$firestore_version"
     //architecture components
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
@@ -70,4 +72,9 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_ktx"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_ktx"
     implementation "androidx.activity:activity-ktx:$activity_version"
+    //Coroutines firebase
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$firebase_coroutines"
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
 }
