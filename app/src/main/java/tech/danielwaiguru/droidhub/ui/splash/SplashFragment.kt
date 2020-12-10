@@ -1,6 +1,8 @@
 package tech.danielwaiguru.droidhub.ui.splash
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +25,10 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getCurrentSession()
+        //getCurrentSession()
+        Handler(Looper.getMainLooper()).postDelayed({
+            getCurrentSession()
+        }, 1000)
     }
     private fun getCurrentSession() {
         val currentUser = Firebase.auth.currentUser
