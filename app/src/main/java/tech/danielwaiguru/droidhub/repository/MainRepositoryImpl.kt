@@ -1,20 +1,29 @@
 package tech.danielwaiguru.droidhub.repository
 
 import android.net.Uri
+import com.google.android.gms.tasks.Task
+import com.google.firebase.FirebaseException
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
 import kotlinx.coroutines.tasks.await
+import tech.danielwaiguru.droidhub.common.Constants.FILES_BUCKET
 import tech.danielwaiguru.droidhub.common.Constants.USERS_COLLECTION
+import tech.danielwaiguru.droidhub.model.FileUpload
 import tech.danielwaiguru.droidhub.model.ResultWrapper
 import tech.danielwaiguru.droidhub.model.User
 
 class MainRepositoryImpl: MainRepository {
-    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
-    private val storage: FirebaseStorage = FirebaseStorage.getInstance()
-    private val database: FirebaseFirestore = FirebaseFirestore.getInstance()
+    private val auth: FirebaseAuth = Firebase.auth
+    private val storage: FirebaseStorage = Firebase.storage
+    private val database: FirebaseFirestore = Firebase.firestore
     override suspend fun signUp(user: User, password: String): ResultWrapper<AuthResult> =
             try {
                 val taskResult = auth.createUserWithEmailAndPassword(user.email, password).await()
@@ -38,11 +47,29 @@ class MainRepositoryImpl: MainRepository {
         userCollection.add(user)
     }
 
-    override fun saveFile(downloadUrl: String) {
-        TODO("Not yet implemented")
-    }
+    override suspend fun saveFile(fileName: String, downloadUrl: String): ResultWrapper<Task<Void>> =
+            try {
+                val fileId = database.collection(FILES_BUCKET).document().id
+                val  file = FileUpload(fileId, fileName, downloadUrl)
+                val resourceDocument = database.collection(FILES_BUCKET).document(fileId).set(file)
+                ResultWrapper.Success(resourceDocument)
+            }
+            catch (e: FirebaseFirestoreException){
+                ResultWrapper.Failure(e.message.toString())
+            }
 
-    override fun uploadFile(file: Uri) {
-        TODO("Not yet implemented")
-    }
+    override suspend fun uploadFile(fileUri: Uri, fileName: String) : ResultWrapper<String> =
+            try {
+                val filesBucket = storage.reference.child(FILES_BUCKET)
+                val downloadUrl = filesBucket.child(fileName).putFile(fileUri)
+                        .await()
+                        .storage
+                        .downloadUrl
+                        .await()
+                        .toString()
+                ResultWrapper.Success(downloadUrl)
+            }
+            catch (e: FirebaseException){
+                ResultWrapper.Failure(e.message.toString())
+            }
 }
