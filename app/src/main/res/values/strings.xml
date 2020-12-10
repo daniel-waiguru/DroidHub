@@ -20,4 +20,5 @@
     <string name="password_error">Password should be more than 6 characters</string>
     <string name="login_success">Login successful</string>
     <string name="file_error">File name is required!</string>
+    <string name="sign_out_use">Sign Out use</string>
 </resources>

@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@id/chooseFileButton"
         app:layout_constraintStart_toStartOf="@id/chooseFileButton"
         app:layout_constraintEnd_toEndOf="@id/chooseFileButton"
-        android:indeterminateTint="@color/colorPrimary"
+        android:indeterminateTint="@color/color_primary"
         app:layout_constraintBottom_toTopOf="@id/uploadFileButton"
         />
     <Button
@@ -70,7 +70,7 @@
         android:layout_marginTop="250dp"
         style="@style/CustomButton"
         android:textStyle="bold"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="@color/color_primary"
         app:layout_constraintStart_toStartOf="@id/chooseFileButton"
         app:layout_constraintEnd_toEndOf="@id/chooseFileButton"
         app:layout_constraintTop_toBottomOf="@id/chooseFileButton"

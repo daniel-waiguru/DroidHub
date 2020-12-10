@@ -35,4 +35,5 @@ class HomeViewModel : ViewModel() {
             }
         }
     }
+    fun signOut() = repository.signOut()
 }

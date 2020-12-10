@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:textAlignment="center"
             tools:text="Mathematics"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/color_primary"
             android:textStyle="bold"
             android:textSize="@dimen/subtitle_size"
             />

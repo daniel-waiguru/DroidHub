@@ -18,12 +18,6 @@ class UploadFileViewModel : ViewModel() {
     private val _toast: MutableLiveData<String> = MutableLiveData()
     val toast: LiveData<String?>
         get() = _toast
-    fun saveFile(fileName: String, downloadUrl: String) {
-        repository.saveFile(fileName, downloadUrl)
-    }
-    suspend fun uploadFile(fileUri: Uri, fileName: String): ResultWrapper<String> {
-        return repository.uploadFile(fileUri, fileName)
-    }
     fun saveRFile(fileUri: Uri, fileName: String) {
         _loading.value = true
         viewModelScope.launch {

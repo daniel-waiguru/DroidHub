@@ -77,4 +77,8 @@ class MainRepositoryImpl: MainRepository {
     override fun getFiles(): Query {
         return database.collection(FILES_BUCKET).orderBy("fileName", Query.Direction.ASCENDING)
     }
+
+    override fun signOut() {
+        auth.signOut()
+    }
 }

@@ -49,7 +49,14 @@ class HomeFragment : Fragment() {
     private fun initListeners() {
         with(binding) {
             addFile.setOnClickListener { startUploadUi() }
+            actionLogout.setOnClickListener { signOut() }
         }
+    }
+    private fun signOut() {
+        findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToSignInFragment()
+        )
+        homeViewModel.signOut()
     }
     private fun setupRecyclerView() = binding.filesRecyclerView.apply {
         layoutManager = LinearLayoutManager(requireContext())

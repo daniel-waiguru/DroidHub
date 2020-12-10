@@ -14,4 +14,5 @@ interface MainRepository {
     fun saveFile(fileName: String, downloadUrl: String): ResultWrapper<Task<Void>>
     suspend fun uploadFile(fileUri: Uri, fileName: String): ResultWrapper<String>
     fun getFiles(): Query
+    fun signOut()
 }
