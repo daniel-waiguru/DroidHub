@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import tech.danielwaiguru.droidhub.databinding.FragmentSplashBinding
 
 class SplashFragment : Fragment() {
@@ -21,9 +23,29 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val action = SplashFragmentDirections.actionSplashFragmentToSignInFragment()
-        findNavController().navigate(action)
+        getCurrentSession()
     }
+    private fun getCurrentSession() {
+        val currentUser = Firebase.auth.currentUser
+        if (currentUser == null) {
+            startSignInUi()
+        }else {
+            startHomeUi()
+        }
+    }
+
+    private fun startSignInUi() {
+        findNavController().navigate(
+                SplashFragmentDirections.actionSplashFragmentToSignInFragment()
+        )
+    }
+
+    private fun startHomeUi() {
+        findNavController().navigate(
+                SplashFragmentDirections.actionSplashFragmentToHomeFragment()
+        )
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
