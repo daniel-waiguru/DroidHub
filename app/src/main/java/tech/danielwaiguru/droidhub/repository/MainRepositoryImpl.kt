@@ -47,7 +47,7 @@ class MainRepositoryImpl: MainRepository {
         userCollection.add(user)
     }
 
-    override suspend fun saveFile(fileName: String, downloadUrl: String): ResultWrapper<Task<Void>> =
+    override fun saveFile(fileName: String, downloadUrl: String): ResultWrapper<Task<Void>> =
             try {
                 val fileId = database.collection(FILES_BUCKET).document().id
                 val  file = FileUpload(fileId, fileName, downloadUrl)
