@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import tech.danielwaiguru.droidhub.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -18,8 +19,20 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initListeners()
+    }
+
+    private fun initListeners() {
+        with(binding) {
+            addFile.setOnClickListener { startUploadUi() }
+        }
+    }
+
+    private fun startUploadUi() {
+        val action = HomeFragmentDirections.actionHomeFragmentToUploadFileFragment()
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {

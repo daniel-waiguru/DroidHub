@@ -72,6 +72,7 @@ class SignInFragment : Fragment() {
     private fun startHomeUi() {
         val action = SignInFragmentDirections.actionSignInFragmentToHomeFragment()
         findNavController().navigate(action)
+        //Navigation.findNavController(requireView()).popBackStack(R.id.signInFragment, true)
     }
 
     private fun validInputs(): Boolean {
