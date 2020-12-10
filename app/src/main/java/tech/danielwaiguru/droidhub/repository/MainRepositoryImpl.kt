@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -72,4 +73,8 @@ class MainRepositoryImpl: MainRepository {
             catch (e: FirebaseException){
                 ResultWrapper.Failure(e.message.toString())
             }
+
+    override fun getFiles(): Query {
+        return database.collection(FILES_BUCKET).orderBy("fileName", Query.Direction.ASCENDING)
+    }
 }
