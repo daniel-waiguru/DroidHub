@@ -28,7 +28,6 @@ class SplashFragment : Fragment() {
         Handler(Looper.getMainLooper()).postDelayed({
             getCurrentSession()
         }, 1000)
-        
     }
     private fun getCurrentSession() {
         val currentUser = Firebase.auth.currentUser

@@ -25,6 +25,7 @@ class MainRepositoryImpl: MainRepository {
     private val auth: FirebaseAuth = Firebase.auth
     private val storage: FirebaseStorage = Firebase.storage
     private val database: FirebaseFirestore = Firebase.firestore
+    private val filesCollection = database.collection(FILES_BUCKET)
     override suspend fun signUp(user: User, password: String): ResultWrapper<AuthResult> =
             try {
                 val taskResult = auth.createUserWithEmailAndPassword(user.email, password).await()
@@ -50,9 +51,9 @@ class MainRepositoryImpl: MainRepository {
 
     override fun saveFile(fileName: String, downloadUrl: String): ResultWrapper<Task<Void>> =
             try {
-                val fileId = database.collection(FILES_BUCKET).document().id
+                val fileId = filesCollection.document().id
                 val  file = FileUpload(fileId, fileName, downloadUrl)
-                val resourceDocument = database.collection(FILES_BUCKET).document(fileId).set(file)
+                val resourceDocument = filesCollection.document(fileId).set(file)
                 ResultWrapper.Success(resourceDocument)
             }
             catch (e: FirebaseFirestoreException){
@@ -77,6 +78,22 @@ class MainRepositoryImpl: MainRepository {
     override fun getFiles(): Query {
         return database.collection(FILES_BUCKET).orderBy("fileName", Query.Direction.ASCENDING)
     }
+
+    override fun deleteFile(documentId: String): ResultWrapper<Task<Void>> =
+            try {
+                ResultWrapper.Success(filesCollection.document(documentId).delete())
+            }
+            catch (e: FirebaseFirestoreException){
+                ResultWrapper.Failure(e.message.toString())
+            }
+
+    override fun freeStorage(fileName: String): ResultWrapper<Task<Void>> =
+            try {
+                ResultWrapper.Success(storage.reference.child(FILES_BUCKET).child(fileName).delete())
+            }
+            catch (e: Exception) {
+                ResultWrapper.Failure(e.message.toString())
+            }
 
     override fun signOut() {
         auth.signOut()

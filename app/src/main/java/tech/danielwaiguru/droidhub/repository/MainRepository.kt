@@ -15,4 +15,6 @@ interface MainRepository {
     suspend fun uploadFile(fileUri: Uri, fileName: String): ResultWrapper<String>
     fun getFiles(): Query
     fun signOut()
+    fun deleteFile(documentId: String): ResultWrapper<Task<Void>>
+    fun freeStorage(fileName: String): ResultWrapper<Task<Void>>
 }

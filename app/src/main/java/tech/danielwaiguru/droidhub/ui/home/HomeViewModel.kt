@@ -1,10 +1,12 @@
 package tech.danielwaiguru.droidhub.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.ktx.toObject
 import tech.danielwaiguru.droidhub.model.FileUpload
+import tech.danielwaiguru.droidhub.model.ResultWrapper
 import tech.danielwaiguru.droidhub.repository.MainRepository
 import tech.danielwaiguru.droidhub.repository.MainRepositoryImpl
 
@@ -32,6 +34,17 @@ class HomeViewModel : ViewModel() {
                 }
                 _files.value = allFiles
                 _loading.value = false
+            }
+        }
+    }
+    fun deleteFiles(documentId: String, fileName: String) {
+        when(repository.deleteFile(documentId)){
+            is ResultWrapper.Success -> {
+                repository.freeStorage(fileName)
+                Log.d(javaClass.simpleName, "Deleted")
+            }
+            is ResultWrapper.Failure -> {
+                Log.d(javaClass.simpleName, "Error deleting resource")
             }
         }
     }
