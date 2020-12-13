@@ -49,7 +49,9 @@ class HomeFragment : Fragment() {
             }
         })
         homeViewModel.files.observe(viewLifecycleOwner, {
-            fileAdapter.submitList(it)
+            files.clear()
+            files.addAll(it)
+            fileAdapter.submitList(files)
         })
     }
     private fun initListeners() {
