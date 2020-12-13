@@ -21,4 +21,5 @@
     <string name="login_success">Login successful</string>
     <string name="file_error">File name is required!</string>
     <string name="sign_out_use">Sign Out use</string>
+    <string name="delete_item">Item deleted!</string>
 </resources>
