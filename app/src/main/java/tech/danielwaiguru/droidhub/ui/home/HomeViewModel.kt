@@ -8,10 +8,8 @@ import com.google.firebase.firestore.ktx.toObject
 import tech.danielwaiguru.droidhub.model.FileUpload
 import tech.danielwaiguru.droidhub.model.ResultWrapper
 import tech.danielwaiguru.droidhub.repository.MainRepository
-import tech.danielwaiguru.droidhub.repository.MainRepositoryImpl
 
-class HomeViewModel : ViewModel() {
-    private val repository: MainRepository = MainRepositoryImpl()
+class HomeViewModel(private val repository: MainRepository) : ViewModel() {
     private val _files: MutableLiveData<List<FileUpload>> = MutableLiveData()
     val files: LiveData<List<FileUpload>> get() = _files
     private val _loading: MutableLiveData<Boolean> = MutableLiveData(false)

@@ -19,11 +19,14 @@ import tech.danielwaiguru.droidhub.common.visible
 import tech.danielwaiguru.droidhub.databinding.FragmentSignUpBinding
 import tech.danielwaiguru.droidhub.model.ResultWrapper
 import tech.danielwaiguru.droidhub.model.User
+import tech.danielwaiguru.droidhub.repository.MainRepositoryImpl
 
 class SignUpFragment : Fragment() {
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
-    private val signUpViewModel: SignUpViewModel by viewModels()
+    private val signUpViewModel: SignUpViewModel by viewModels {
+        SignUpViewModelFactory(MainRepositoryImpl())
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

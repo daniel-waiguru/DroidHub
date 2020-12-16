@@ -9,10 +9,8 @@ import kotlinx.coroutines.launch
 import tech.danielwaiguru.droidhub.model.ResultWrapper
 import tech.danielwaiguru.droidhub.model.User
 import tech.danielwaiguru.droidhub.repository.MainRepository
-import tech.danielwaiguru.droidhub.repository.MainRepositoryImpl
 
-class SignUpViewModel : ViewModel() {
-    private val repository: MainRepository = MainRepositoryImpl()
+class SignUpViewModel(private val repository: MainRepository) : ViewModel() {
     private val _message: MutableLiveData<String> = MutableLiveData()
     val message: LiveData<String> get() = _message
     private val _loading: MutableLiveData<Boolean> = MutableLiveData(false)

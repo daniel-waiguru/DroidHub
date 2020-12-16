@@ -8,10 +8,8 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import tech.danielwaiguru.droidhub.model.ResultWrapper
 import tech.danielwaiguru.droidhub.repository.MainRepository
-import tech.danielwaiguru.droidhub.repository.MainRepositoryImpl
 
-class UploadFileViewModel : ViewModel() {
-    private val repository: MainRepository = MainRepositoryImpl()
+class UploadFileViewModel(private val repository: MainRepository ) : ViewModel() {
     private val _loading: MutableLiveData<Boolean> = MutableLiveData()
     val loading: LiveData<Boolean>
         get() = _loading
