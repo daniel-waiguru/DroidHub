@@ -32,8 +32,8 @@
         android:layout_marginBottom="@dimen/margin"
         android:layout_marginTop="@dimen/margin_top_large"
         android:hint="@string/file_name_goes_here"
-        android:inputType="text"
-        android:autofillHints="email"
+        android:inputType="textCapWords|text"
+        android:autofillHints="text"
         />
     <Button
         android:id="@+id/chooseFileButton"

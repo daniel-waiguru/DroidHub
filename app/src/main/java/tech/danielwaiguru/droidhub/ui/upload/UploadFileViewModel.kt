@@ -35,7 +35,7 @@ class UploadFileViewModel(private val repository: MainRepository ) : ViewModel()
         }
     }
     private suspend fun getDownloadUri(fileUri: Uri, fileName: String): String{
-        var downloadUrl: String? = null
+        val downloadUrl: String?
         downloadUrl = when (val result = repository.uploadFile(fileUri, fileName)){
             is ResultWrapper.Success -> {
                 result.data
