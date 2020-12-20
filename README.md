@@ -7,7 +7,7 @@ I used the following developement components
 * ViewBinding - for easy interaction between code and views
 * ViewModel - manage UI's data in a lifecycle-aware fashion
 
-#### Prerequisite
+### Prerequisite
 To run the project you should have the following tools
 * Android Studio 4.0 or above
 * Internet connection
