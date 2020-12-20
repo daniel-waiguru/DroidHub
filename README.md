@@ -19,10 +19,23 @@ To run the project you should have the following tools
 ### User interface
 #### Auth - Registration
 The user is presented with Registration Page where he/she is required to Sign Up with email and password.
+
 <img src="screenshots/register.png" />
+
+
 #### Login
 The user is presented with Login Page where he/she is required to Sign In with registered email and password.
+
+<img src="screenshots/login.png" />
+
+
 #### Home Page
 User is directed to Home screen where he/she can view his files stored in cloud storage
+
+<img src="screenshots/home.png" />
+
+
 #### Add Files Page
 User is taken to Add Files page after clicking the floating actio button on Home Page where he/she can select files to upload from his device storage and provide a name for the file. 
+
+<img src="screenshots/add_file.png" />
