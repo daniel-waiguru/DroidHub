@@ -16,12 +16,13 @@ import tech.danielwaiguru.droidhub.common.toast
 import tech.danielwaiguru.droidhub.common.visible
 import tech.danielwaiguru.droidhub.databinding.FragmentUploadFileBinding
 import tech.danielwaiguru.droidhub.repository.MainRepositoryImpl
+import tech.danielwaiguru.droidhub.ui.viewmodel.MainViewModelFactory
 
 class UploadFileFragment : Fragment() {
     private var _binding: FragmentUploadFileBinding? = null
     private val binding get() = _binding!!
     private val uploadFileViewModel: UploadFileViewModel by viewModels {
-        UploadFileViewModelFactory(MainRepositoryImpl())
+        MainViewModelFactory(MainRepositoryImpl())
     }
     private var fileUri: Uri? = null
 

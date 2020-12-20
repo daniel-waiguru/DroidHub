@@ -18,13 +18,14 @@ import tech.danielwaiguru.droidhub.databinding.FragmentHomeBinding
 import tech.danielwaiguru.droidhub.model.FileUpload
 import tech.danielwaiguru.droidhub.repository.MainRepositoryImpl
 import tech.danielwaiguru.droidhub.ui.adapter.FileUploadAdapter
+import tech.danielwaiguru.droidhub.ui.viewmodel.MainViewModelFactory
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val fileAdapter: FileUploadAdapter by lazy { FileUploadAdapter() }
     private val homeViewModel: HomeViewModel by viewModels {
-        HomeViewModelFactory(MainRepositoryImpl())
+        MainViewModelFactory(MainRepositoryImpl())
     }
     private val files = ArrayList<FileUpload>()
     override fun onCreateView(

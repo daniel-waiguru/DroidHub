@@ -18,12 +18,13 @@ import tech.danielwaiguru.droidhub.common.visible
 import tech.danielwaiguru.droidhub.databinding.FragmentSignInBinding
 import tech.danielwaiguru.droidhub.model.ResultWrapper
 import tech.danielwaiguru.droidhub.repository.MainRepositoryImpl
+import tech.danielwaiguru.droidhub.ui.viewmodel.MainViewModelFactory
 
 class SignInFragment : Fragment() {
     private var _binding: FragmentSignInBinding? = null
     private val binding get() = _binding!!
     private val signInViewModel: SignInViewModel by viewModels {
-        SignInViewModelFactory(MainRepositoryImpl())
+        MainViewModelFactory(MainRepositoryImpl())
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
