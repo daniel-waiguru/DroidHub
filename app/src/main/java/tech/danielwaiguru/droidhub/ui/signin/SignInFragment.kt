@@ -30,7 +30,7 @@ class SignInFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSignInBinding.inflate(layoutInflater)
+        _binding = FragmentSignInBinding.inflate(inflater, container, false)
         return binding.root
     }
 

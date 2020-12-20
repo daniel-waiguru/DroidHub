@@ -30,7 +30,7 @@ class UploadFileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentUploadFileBinding.inflate(layoutInflater)
+        _binding = FragmentUploadFileBinding.inflate(inflater, container, false)
         return binding.root
     }
 

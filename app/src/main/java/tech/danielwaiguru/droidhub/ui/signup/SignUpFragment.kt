@@ -32,7 +32,7 @@ class SignUpFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSignUpBinding.inflate(layoutInflater)
+        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -97,17 +97,6 @@ class SignUpFragment : Fragment() {
         findNavController().navigate(action)
     }
 
-    private fun signUp() {
-        if (showError()){
-            with(binding){
-                val name = userName.text.toString()
-                val email = userEmail.text.toString()
-                val password = userPassword.text.toString()
-                val user = User(name, email)
-                signUpViewModel.signUp(user, password)
-            }
-        }
-    }
     private fun showError(): Boolean {
         with(binding){
             if (userName.text.isEmpty()){
