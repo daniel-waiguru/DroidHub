@@ -19,6 +19,7 @@ To run the project you should have the following tools
 ### User interface
 #### Auth - Registration
 The user is presented with Registration Page where he/she is required to Sign Up with email and password.
+<img src="screenshots/register.png" />
 #### Login
 The user is presented with Login Page where he/she is required to Sign In with registered email and password.
 #### Home Page
