@@ -1,6 +1,6 @@
 # DroidHub
 
-DroidHub is a simple app that lets users store their files in cloud storage, view and be able to downoad them.
+DroidHub is a simple app that lets users store their files in cloud storage, view and be able to download them.
 The app uses MVVM architecture
 I used the following developement components
 * LiveData - lifecycle-aware data holder
@@ -20,7 +20,7 @@ To run the project you should have the following tools
 #### Auth - Registration
 The user is presented with Registration Page where he/she is required to Sign Up with email and password.
 
-<img src="screenshots/register.png" width="300px" height="500px"/>
+<img src="screenshots/register.png" width="300px" height="600px"/>
 
 
 #### Login
