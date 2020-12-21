@@ -1,5 +1,7 @@
 package tech.danielwaiguru.droidhub.ui.home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,10 +22,10 @@ import tech.danielwaiguru.droidhub.repository.MainRepositoryImpl
 import tech.danielwaiguru.droidhub.ui.adapter.FileUploadAdapter
 import tech.danielwaiguru.droidhub.ui.viewmodel.MainViewModelFactory
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), FileUploadAdapter.OnFileItemClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val fileAdapter: FileUploadAdapter by lazy { FileUploadAdapter() }
+    private val fileAdapter: FileUploadAdapter by lazy { FileUploadAdapter(this) }
     private val homeViewModel: HomeViewModel by viewModels {
         MainViewModelFactory(MainRepositoryImpl())
     }
@@ -91,6 +93,17 @@ class HomeFragment : Fragment() {
             Snackbar.make(requireView(), getString(R.string.delete_item), Snackbar.LENGTH_LONG)
         }
     }
+    private fun viewFile(url: String) {
+        Intent(Intent.ACTION_VIEW).apply {
+            setDataAndType(Uri.parse(url), "application/pdf")
+            startActivity(this)
+        }
+    }
+
+    override fun onFileItemClicked(fileUpload: FileUpload) {
+        viewFile(fileUpload.downloadUrl)
+    }
+
     private fun startUploadUi() {
         val action = HomeFragmentDirections.actionHomeFragmentToUploadFileFragment()
         findNavController().navigate(action)

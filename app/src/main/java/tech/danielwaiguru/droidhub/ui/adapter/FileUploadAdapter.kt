@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import tech.danielwaiguru.droidhub.databinding.FileItemBinding
 import tech.danielwaiguru.droidhub.model.FileUpload
 
-class FileUploadAdapter: RecyclerView.Adapter<FileUploadViewHolder>() {
+class FileUploadAdapter(private val listener: OnFileItemClickListener):
+        RecyclerView.Adapter<FileUploadViewHolder>() {
     private val diffCallback = object : DiffUtil.ItemCallback<FileUpload>() {
         override fun areItemsTheSame(oldItem: FileUpload, newItem: FileUpload): Boolean {
             return oldItem.id == newItem.id
@@ -29,8 +30,11 @@ class FileUploadAdapter: RecyclerView.Adapter<FileUploadViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: FileUploadViewHolder, position: Int) {
-        holder.bind(differ.currentList[position])
+        holder.bind(differ.currentList[position], listener)
     }
 
     override fun getItemCount(): Int = differ.currentList.size
+    interface OnFileItemClickListener {
+        fun onFileItemClicked(fileUpload: FileUpload)
+    }
 }
