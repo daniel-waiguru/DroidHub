@@ -22,4 +22,5 @@
     <string name="file_error">File name is required!</string>
     <string name="sign_out_use">Sign Out use</string>
     <string name="delete_item">Item deleted!</string>
+    <string name="sign_in">Sign In</string>
 </resources>

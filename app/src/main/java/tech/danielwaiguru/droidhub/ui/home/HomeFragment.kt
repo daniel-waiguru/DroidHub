@@ -90,7 +90,7 @@ class HomeFragment : Fragment(), FileUploadAdapter.OnFileItemClickListener {
             val itemSwiped = files[position]
             homeViewModel.deleteFiles(itemSwiped.id, itemSwiped.fileName)
             fileAdapter.notifyItemRemoved(position)
-            Snackbar.make(requireView(), getString(R.string.delete_item), Snackbar.LENGTH_LONG)
+            Snackbar.make(requireView(), getString(R.string.delete_item), Snackbar.LENGTH_LONG).show()
         }
     }
     private fun viewFile(url: String) {
