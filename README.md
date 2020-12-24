@@ -14,7 +14,7 @@ To run the project you should have the following tools
 
 ### Project Setup
 * Clone the project to your local machine
-* open in android studio 
+* Open it in android studio 
 
 ### User interface
 #### Auth - Registration
