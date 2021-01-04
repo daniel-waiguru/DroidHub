@@ -7,14 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import tech.danielwaiguru.droidhub.databinding.FragmentSplashBinding
+import tech.danielwaiguru.droidhub.repository.MainRepositoryImpl
+import tech.danielwaiguru.droidhub.ui.viewmodel.MainViewModelFactory
 
 class SplashFragment : Fragment() {
     private var _binding: FragmentSplashBinding? = null
     private val binding get() = _binding!!
+    private val splashViewModel: SplashViewModel by viewModels {
+        MainViewModelFactory(MainRepositoryImpl())
+    }
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -30,7 +34,7 @@ class SplashFragment : Fragment() {
         }, 1000)
     }
     private fun getCurrentSession() {
-        val currentUser = Firebase.auth.currentUser
+        val currentUser = splashViewModel.getCurrentUser()
         if (currentUser == null) {
             startSignInUi()
         }else {

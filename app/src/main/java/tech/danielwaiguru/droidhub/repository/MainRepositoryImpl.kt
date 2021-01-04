@@ -95,6 +95,8 @@ class MainRepositoryImpl: MainRepository {
                 ResultWrapper.Failure(e.message.toString())
             }
 
+    override fun getCurrentUser() = auth.currentUser
+
     override fun signOut() {
         auth.signOut()
     }
