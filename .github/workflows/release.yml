@@ -17,10 +17,14 @@ jobs:
         with:
           ruby-version: '2.6'
 
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+        
       - name: Install bundle
         run: |
           bundle config path vendor/bundle
-          bundle install --jobs 4 --retyry 3
+          bundle install --jobs 4 --retry 3
 
       - name: Create Firebase Service Credetials file
         run: |
@@ -33,5 +37,4 @@ jobs:
       - name: Distribute app with Firebase
         run: bundle exec fastlane beta
         env:
-          FIREBASE_APP_AI: ${{ secrets.FIREBASE_APP_ID }}
-  
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
