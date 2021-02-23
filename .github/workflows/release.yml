@@ -20,7 +20,7 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-        
+
       - name: Install bundle
         run: |
           bundle config path vendor/bundle
